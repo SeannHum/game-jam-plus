@@ -13,9 +13,9 @@ func _process(delta: float) -> void:
 
 func on_lives_changed(player, lives):
 	if player == "Player1":
-		$"Player1Lives/LivesValue".text = str(lives)
+		$"Player1Lives".text = "Player 1: " + str(lives)
 	elif player == "Player2":
-		$"Player2Lives/LivesValue".text = str(lives)
+		$"Player2Lives".text = "Player 2: " + str(lives)
 
 
 func display_current_time(time: float):

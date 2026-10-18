@@ -11,34 +11,16 @@ offset_top = 14.0
 offset_right = 243.0
 offset_bottom = 80.0
 theme_override_font_sizes/font_size = 40
-text = "Player 1:"
-
-[node name="LivesValue" type="Label" parent="Player1Lives" unique_id=595302634]
-layout_mode = 0
-offset_left = 57.0
-offset_top = 68.0
-offset_right = 175.0
-offset_bottom = 192.0
-theme_override_font_sizes/font_size = 40
-text = "6"
+text = "Player 1: 6"
 
 [node name="Player2Lives" type="Label" parent="." unique_id=500309722]
-offset_left = 953.0
-offset_top = 15.0
-offset_right = 1135.0
-offset_bottom = 128.0
+offset_left = 934.0
+offset_top = 18.0
+offset_right = 1132.0
+offset_bottom = 131.0
 theme_override_font_sizes/font_size = 40
-text = "Player 2:
+text = "Player 2: 6
 "
-
-[node name="LivesValue" type="Label" parent="Player2Lives" unique_id=147292600]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 67.0
-offset_right = 185.0
-offset_bottom = 191.0
-theme_override_font_sizes/font_size = 40
-text = "6"
 
 [node name="TimerLabel" type="Label" parent="." unique_id=2135317283]
 offset_left = 417.0
