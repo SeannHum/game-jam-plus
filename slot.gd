@@ -22,6 +22,12 @@ func spin() -> void:
 		symbols.pick_random()
 	]
 	
+	$ReelAnimationTimer.start()
+	$RollSound.play()
+	await get_tree().create_timer(3.0).timeout
+	$ReelAnimationTimer.stop()
+	$RollSound.stop()
+	
 	$HBoxContainer/Reel1.text = result[0]
 	$HBoxContainer/Reel2.text = result[1]
 	$HBoxContainer/Reel3.text = result[2]
@@ -33,6 +39,7 @@ func spin() -> void:
 		spin_result.emit(player, 
 						 symbols[result_count.find(result_count.max())], 
 						 result_count.max())
+		$RollSuccessSound.play()
 
 
 func get_reward_text(result: Array) -> String:
@@ -66,3 +73,9 @@ func get_reward_text(result: Array) -> String:
 
 func _on_spin_timer_timeout() -> void:
 	spin()
+
+
+func _on_reel_animation_timer_timeout() -> void:
+	$HBoxContainer/Reel1.text = symbols.pick_random()
+	$HBoxContainer/Reel2.text = symbols.pick_random()
+	$HBoxContainer/Reel3.text = symbols.pick_random()

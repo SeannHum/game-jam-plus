@@ -12,10 +12,12 @@ func _process(delta: float) -> void:
 
 
 func on_lives_changed(player, lives):
-	if player == "Player1":
-		$"Player1Lives".text = "Player 1: " + str(lives)
-	elif player == "Player2":
-		$"Player2Lives".text = "Player 2: " + str(lives)
+	var hearts_array = get_node(player + "Lives").get_children()
+	for life in range(len(hearts_array)):
+		if life < lives:
+			hearts_array[life].visible = true
+		else:
+			hearts_array[life].visible = false
 
 
 func display_current_time(time: float):

@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d1mlgeogdlgtf" path="res://hud.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cpx81m6i88qka" path="res://win_menu.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://3ucefucs1tnv" path="res://lightning_spawner.tscn" id="7_272bh"]
+[ext_resource type="AudioStream" uid="uid://cvc723rhfojxs" path="res://music/rumble-jackpot-showdown-2.mp3" id="11_efxa6"]
 
 [node name="Main" type="Node" unique_id=1184358627]
 script = ExtResource("1_1bvp3")
@@ -45,5 +46,10 @@ min_x = 1152.0
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1972197135]
+stream = ExtResource("11_efxa6")
+volume_db = 5.0
+autoplay = true
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

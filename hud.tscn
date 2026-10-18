@@ -1,26 +1,10 @@
 [gd_scene format=3 uid="uid://d1mlgeogdlgtf"]
 
 [ext_resource type="Script" uid="uid://040f8fsnv3ew" path="res://hud.gd" id="1_37p78"]
+[ext_resource type="Texture2D" uid="uid://cnhkmbdm0aw8r" path="res://art/Pixel Heart Sprite Sheet 16x16.png" id="2_64ctp"]
 
 [node name="HUD" type="CanvasLayer" unique_id=310700559]
 script = ExtResource("1_37p78")
-
-[node name="Player1Lives" type="Label" parent="." unique_id=1461431299]
-offset_left = 27.0
-offset_top = 14.0
-offset_right = 243.0
-offset_bottom = 80.0
-theme_override_font_sizes/font_size = 40
-text = "Player 1: 6"
-
-[node name="Player2Lives" type="Label" parent="." unique_id=500309722]
-offset_left = 934.0
-offset_top = 18.0
-offset_right = 1132.0
-offset_bottom = 131.0
-theme_override_font_sizes/font_size = 40
-text = "Player 2: 6
-"
 
 [node name="TimerLabel" type="Label" parent="." unique_id=2135317283]
 offset_left = 417.0
@@ -30,3 +14,164 @@ offset_bottom = 127.0
 theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Player1Lives" type="HBoxContainer" parent="." unique_id=27438709]
+offset_left = 13.0
+offset_top = 7.0
+offset_right = 378.0
+offset_bottom = 47.0
+
+[node name="TextureRect" type="TextureRect" parent="Player1Lives" unique_id=2047772206]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Player1Lives" unique_id=526122650]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="Player1Lives" unique_id=2048084237]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="Player1Lives" unique_id=1567437681]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="Player1Lives" unique_id=1113086933]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect6" type="TextureRect" parent="Player1Lives" unique_id=692597648]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect7" type="TextureRect" parent="Player1Lives" unique_id=106869838]
+visible = false
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect8" type="TextureRect" parent="Player1Lives" unique_id=1998262187]
+visible = false
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect9" type="TextureRect" parent="Player1Lives" unique_id=451509369]
+visible = false
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect10" type="TextureRect" parent="Player1Lives" unique_id=381927548]
+visible = false
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Player2Lives" type="HBoxContainer" parent="." unique_id=1702900098]
+offset_left = 785.0
+offset_top = 6.0
+offset_right = 1150.0
+offset_bottom = 46.0
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Player2Lives" unique_id=64764993]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Player2Lives" unique_id=975506504]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="Player2Lives" unique_id=1160118173]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="Player2Lives" unique_id=1136684549]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="Player2Lives" unique_id=1463605616]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect6" type="TextureRect" parent="Player2Lives" unique_id=573137455]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect7" type="TextureRect" parent="Player2Lives" unique_id=1771765968]
+visible = false
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect8" type="TextureRect" parent="Player2Lives" unique_id=2119974419]
+visible = false
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect9" type="TextureRect" parent="Player2Lives" unique_id=1543765255]
+visible = false
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect10" type="TextureRect" parent="Player2Lives" unique_id=199704630]
+visible = false
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = ExtResource("2_64ctp")
+expand_mode = 1
+stretch_mode = 5

@@ -12,7 +12,7 @@ func _ready() -> void:
 	$Player2/Slot.spin_result.connect($"."._on_spin_result)
 	
 	$Player1/Slot.position = Vector2(0,0)
-	$Player1/Slot.position = Vector2(900,0)
+	$Player2/Slot.position = Vector2(900,0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,10 +21,10 @@ func _process(delta: float) -> void:
 
 
 # When the player dies, check if they lose a life and respawn, or game ends
-func lose_life(body, from_x) -> void:
+func lose_life(body, from_x, damage) -> void:
 	if body is CharacterBody2D:
 		if body.invincible == false:
-			body.lives -= body.damage
+			body.lives -= damage
 			$HUD.on_lives_changed(body.name, body.lives)
 			body.play_hurt_animation()
 			body.knockback(body.global_position.x - from_x)
@@ -49,16 +49,18 @@ func _on_game_timer_timeout() -> void:
 	$LightningSpawner.start_interval_timer()
 
 
-func _on_player_hit(player, from_x):
-	lose_life(player, from_x)
+func _on_player_hit(player, from_x, damage):
+	lose_life(player, from_x, damage)
 
 
 func _on_spin_result(player, symbol, count):
 	if symbol == "❤️":
 		if count == 2:
 			player.lives += 2
+			$HUD.on_lives_changed(player.name, player.lives)
 		if count == 3:
 			player.lives += 4
+			$HUD.on_lives_changed(player.name, player.lives)
 	if symbol == "🛡️":
 		if count == 2:
 			player.start_invincibility(3)

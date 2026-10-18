@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cdh0k7ua0jmg"]
 
 [ext_resource type="Script" uid="uid://7ohtofbx2d5v" path="res://slot.gd" id="1_c24ra"]
+[ext_resource type="AudioStream" uid="uid://kvnkdrip0jws" path="res://music/Slotto Intense Music.mp3" id="2_khion"]
+[ext_resource type="AudioStream" uid="uid://b8c4yt0diok3q" path="res://music/Slotto Success.mp3" id="3_hiqfk"]
 
 [node name="Slot" type="Node2D" unique_id=182238302]
 script = ExtResource("1_c24ra")
@@ -33,11 +35,20 @@ offset_top = 150.0
 offset_right = 354.0
 offset_bottom = 244.0
 theme_override_font_sizes/font_size = 40
-text = "Result: "
 vertical_alignment = 1
 
 [node name="SpinTimer" type="Timer" parent="." unique_id=1652765692]
-wait_time = 5.0
+wait_time = 10.0
 autostart = true
 
+[node name="ReelAnimationTimer" type="Timer" parent="." unique_id=2043018817]
+wait_time = 0.1
+
+[node name="RollSound" type="AudioStreamPlayer" parent="." unique_id=422975634]
+stream = ExtResource("2_khion")
+
+[node name="RollSuccessSound" type="AudioStreamPlayer" parent="." unique_id=1981845318]
+stream = ExtResource("3_hiqfk")
+
 [connection signal="timeout" from="SpinTimer" to="." method="_on_spin_timer_timeout"]
+[connection signal="timeout" from="ReelAnimationTimer" to="." method="_on_reel_animation_timer_timeout"]
