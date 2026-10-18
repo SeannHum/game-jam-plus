@@ -1,6 +1,7 @@
 extends Node
 
 var respawn_point := Vector2(537, 75)
+const KNOCKBACK_VELOCITY = 400
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,12 +21,13 @@ func _process(delta: float) -> void:
 
 
 # When the player dies, check if they lose a life and respawn, or game ends
-func lose_life(body: Node2D) -> void:
+func lose_life(body, from_x) -> void:
 	if body is CharacterBody2D:
 		if body.invincible == false:
 			body.lives -= body.damage
 			$HUD.on_lives_changed(body.name, body.lives)
 			body.play_hurt_animation()
+			body.knockback(body.global_position.x - from_x)
 			
 			# If no more lives, end game, else respawn
 			if body.lives <= 0:
@@ -47,8 +49,8 @@ func _on_game_timer_timeout() -> void:
 	$LightningSpawner.start_interval_timer()
 
 
-func _on_player_hit(player, ownself):
-	lose_life(player)
+func _on_player_hit(player, from_x):
+	lose_life(player, from_x)
 
 
 func _on_spin_result(player, symbol, count):

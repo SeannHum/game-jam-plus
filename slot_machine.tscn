@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://djc87vnjcrvrg"]
+
+[sub_resource type="GDScript" id="GDScript_x12o1"]
+script/source = "extends Control
+
+var symbols := [\"⚔️\", \"🛡️\", \"❤️\"]
+
+@onready var reel_1: Label = $Reel1
+@onready var reel_2: Label = $Reel2
+@onready var reel_3: Label = $Reel3
+@onready var result_label: Label = $ResultLabel
+@onready var spin_button: Button = $SpinButton
+
+
+func _ready() -> void:
+	spin_button.pressed.connect(spin)
+	result_label.text = \"Press Spin!\"
+	print(\"Slot machine ready\")
+
+
+func spin() -> void:
+	print(\"Spin clicked\")
+	
+	var result := [
+		symbols.pick_random(),
+		symbols.pick_random(),
+		symbols.pick_random()
+	]
+	
+	reel_1.text = result[0]
+	reel_2.text = result[1]
+	reel_3.text = result[2]
+	
+	result_label.text = get_reward_text(result)
+
+
+func get_reward_text(result: Array) -> String:
+	var sword_count := result.count(\"⚔️\")
+	var shield_count := result.count(\"🛡️\")
+	var heart_count := result.count(\"❤️\")
+
+	# Triple rewards
+	if sword_count == 3:
+		return \"Triple swords!\\n+2 Attack\"
+
+	if shield_count == 3:
+		return \"Triple shields!\\nDamage taken ×0.25\"
+
+	if heart_count == 3:
+		return \"Triple hearts!\\nHeal 4 HP\"
+
+	# Pair rewards
+	if sword_count == 2:
+		return \"Sword pair!\\n+1 Attack\"
+
+	if shield_count == 2:
+		return \"Shield pair!\\nDamage taken ×0.5\"
+
+	if heart_count == 2:
+		return \"Heart pair!\\nHeal 2 HP\"
+
+	# All three symbols are different
+	return \"No matching symbols\\nNo reward\"
+
+
+func _on_spin_timer_timeout() -> void:
+	spin()
+"
+
+[node name="SlotMachine" type="Control" unique_id=471679335]
+layout_mode = 3
+anchors_preset = 0
+script = SubResource("GDScript_x12o1")
+
+[node name="Reel1" type="Label" parent="." unique_id=1779205757]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 18.0
+offset_right = 131.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 90
+text = "?"
+
+[node name="Reel2" type="Label" parent="." unique_id=1220781022]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 19.0
+offset_right = 294.0
+offset_bottom = 143.0
+theme_override_font_sizes/font_size = 90
+text = "?"
+
+[node name="Reel3" type="Label" parent="." unique_id=1107403102]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 21.0
+offset_right = 211.0
+offset_bottom = 145.0
+theme_override_font_sizes/font_size = 90
+text = "?"
+
+[node name="SpinButton" type="Button" parent="." unique_id=2125823466]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 156.0
+offset_right = 404.0
+offset_bottom = 262.0
+theme_override_font_sizes/font_size = 50
+text = "Spin button"
+
+[node name="ResultLabel" type="Label" parent="." unique_id=1758980053]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 341.0
+offset_right = 296.0
+offset_bottom = 410.0
+theme_override_font_sizes/font_size = 50
+text = "Result"
+
+[node name="SpinTimer" type="Timer" parent="." unique_id=131297719]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="SpinTimer" to="." method="_on_spin_timer_timeout"]
