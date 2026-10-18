@@ -18,8 +18,13 @@ vertical_alignment = 1
 [node name="Player1Lives" type="HBoxContainer" parent="." unique_id=27438709]
 offset_left = 13.0
 offset_top = 7.0
-offset_right = 378.0
+offset_right = 453.0
 offset_bottom = 47.0
+
+[node name="Label" type="Label" parent="Player1Lives" unique_id=1211915601]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "P1:"
 
 [node name="TextureRect" type="TextureRect" parent="Player1Lives" unique_id=2047772206]
 custom_minimum_size = Vector2(32, 16)
@@ -64,7 +69,6 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="TextureRect7" type="TextureRect" parent="Player1Lives" unique_id=106869838]
-visible = false
 custom_minimum_size = Vector2(32, 16)
 layout_mode = 2
 texture = ExtResource("2_64ctp")
@@ -72,7 +76,6 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="TextureRect8" type="TextureRect" parent="Player1Lives" unique_id=1998262187]
-visible = false
 custom_minimum_size = Vector2(32, 16)
 layout_mode = 2
 texture = ExtResource("2_64ctp")
@@ -96,11 +99,16 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Player2Lives" type="HBoxContainer" parent="." unique_id=1702900098]
-offset_left = 785.0
-offset_top = 6.0
-offset_right = 1150.0
-offset_bottom = 46.0
+offset_left = 718.0
+offset_top = 5.0
+offset_right = 1145.0
+offset_bottom = 45.0
 metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Player2Lives" unique_id=828904577]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "P2:"
 
 [node name="TextureRect" type="TextureRect" parent="Player2Lives" unique_id=64764993]
 custom_minimum_size = Vector2(32, 16)
@@ -145,7 +153,6 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="TextureRect7" type="TextureRect" parent="Player2Lives" unique_id=1771765968]
-visible = false
 custom_minimum_size = Vector2(32, 16)
 layout_mode = 2
 texture = ExtResource("2_64ctp")
@@ -153,7 +160,6 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="TextureRect8" type="TextureRect" parent="Player2Lives" unique_id=2119974419]
-visible = false
 custom_minimum_size = Vector2(32, 16)
 layout_mode = 2
 texture = ExtResource("2_64ctp")

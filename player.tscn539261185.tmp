@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dptutr31ni4pq"]
+
+[ext_resource type="Script" uid="uid://ccnmym0ecu2bm" path="res://player.gd" id="1_bxx23"]
+[ext_resource type="SpriteFrames" uid="uid://bt4abdvagbh1h" path="res://Sprite Frames/soldier.tres" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://cdh0k7ua0jmg" path="res://slot.tscn" id="3_i3pqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_buxg0"]
+size = Vector2(71, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(65.125, 91)
+
+[node name="Player1" type="CharacterBody2D" unique_id=2012800532]
+position = Vector2(176, 129)
+collision_layer = 2
+script = ExtResource("1_bxx23")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1653718341]
+position = Vector2(7.6293945e-06, 0)
+scale = Vector2(6, 6)
+sprite_frames = ExtResource("2_onrkg")
+animation = &"attack2"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=210560316]
+position = Vector2(-0.5, -12)
+shape = SubResource("RectangleShape2D_buxg0")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=807345608]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=210515617]
+position = Vector2(68, -13)
+shape = SubResource("RectangleShape2D_onrkg")
+debug_color = Color(0.6156863, 0.5294118, 0.23529412, 0.73333335)
+
+[node name="InvincibilityTimer" type="Timer" parent="." unique_id=686047562]
+
+[node name="Slot" parent="." unique_id=182238302 instance=ExtResource("3_i3pqv")]
+top_level = true
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="." unique_id=982219459]
+
+[node name="PlayerName" type="Label" parent="." unique_id=1296545681]
+offset_left = -22.0
+offset_top = -123.0
+offset_right = 24.0
+offset_bottom = -69.0
+theme_override_font_sizes/font_size = 50
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

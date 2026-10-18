@@ -26,6 +26,7 @@ theme_override_font_sizes/font_size = 40
 
 [node name="StrikeArea" type="Area2D" parent="." unique_id=301997864]
 visible = false
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="StrikeArea" unique_id=1137589695]
 position = Vector2(238, 263)

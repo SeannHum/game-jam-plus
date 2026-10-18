@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cdh0k7ua0jmg"]
 
 [ext_resource type="Script" uid="uid://7ohtofbx2d5v" path="res://slot.gd" id="1_c24ra"]
+[ext_resource type="FontFile" uid="uid://n64joi15lemc" path="res://fonts/NotoColorEmoji-Regular.ttf" id="2_8ag6o"]
 [ext_resource type="AudioStream" uid="uid://kvnkdrip0jws" path="res://music/Slotto Intense Music.mp3" id="2_khion"]
 [ext_resource type="AudioStream" uid="uid://b8c4yt0diok3q" path="res://music/Slotto Success.mp3" id="3_hiqfk"]
 
@@ -16,25 +17,26 @@ alignment = 1
 
 [node name="Reel1" type="Label" parent="HBoxContainer" unique_id=1879411670]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "?"
+theme_override_fonts/font = ExtResource("2_8ag6o")
+theme_override_font_sizes/font_size = 60
 
 [node name="Reel2" type="Label" parent="HBoxContainer" unique_id=519228778]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "?"
+theme_override_fonts/font = ExtResource("2_8ag6o")
+theme_override_font_sizes/font_size = 60
 
 [node name="Reel3" type="Label" parent="HBoxContainer" unique_id=499972579]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "?"
+theme_override_fonts/font = ExtResource("2_8ag6o")
+theme_override_font_sizes/font_size = 60
 
 [node name="Result" type="Label" parent="." unique_id=1347449407]
-offset_left = 18.0
-offset_top = 173.0
-offset_right = 346.0
-offset_bottom = 267.0
-theme_override_font_sizes/font_size = 40
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 293.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SpinTimer" type="Timer" parent="." unique_id=1652765692]

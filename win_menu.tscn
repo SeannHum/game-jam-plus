@@ -1,6 +1,86 @@
 [gd_scene format=3 uid="uid://cpx81m6i88qka"]
 
 [ext_resource type="Script" uid="uid://bfne618phrc1r" path="res://win_menu.gd" id="1_e12sr"]
+[ext_resource type="Texture2D" uid="uid://cyvh01g53npnd" path="res://art/trophy_animated.jpg" id="2_fwnpl"]
+[ext_resource type="AudioStream" uid="uid://dd3fdpircspcq" path="res://music/success.mp3" id="3_705q1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_705q1"]
+atlas = ExtResource("2_fwnpl")
+region = Rect2(0, 0, 250, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcnpx"]
+atlas = ExtResource("2_fwnpl")
+region = Rect2(250, 0, 250, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lws6u"]
+atlas = ExtResource("2_fwnpl")
+region = Rect2(500, 0, 250, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcsnf"]
+atlas = ExtResource("2_fwnpl")
+region = Rect2(750, 0, 250, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frsyg"]
+atlas = ExtResource("2_fwnpl")
+region = Rect2(1000, 0, 250, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvaom"]
+atlas = ExtResource("2_fwnpl")
+region = Rect2(0, 350, 250, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lxq1"]
+atlas = ExtResource("2_fwnpl")
+region = Rect2(250, 350, 250, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7srb"]
+atlas = ExtResource("2_fwnpl")
+region = Rect2(500, 350, 250, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pd2s"]
+atlas = ExtResource("2_fwnpl")
+region = Rect2(750, 350, 250, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07nld"]
+atlas = ExtResource("2_fwnpl")
+region = Rect2(1000, 350, 250, 350)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1wk1d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_705q1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcnpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lws6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcsnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frsyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvaom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lxq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7srb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pd2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07nld")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="WinMenu" type="CanvasLayer" unique_id=2002102645]
 process_mode = 3
@@ -8,28 +88,38 @@ visible = false
 script = ExtResource("1_e12sr")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1805781637]
-offset_left = 69.0
-offset_top = 57.0
-offset_right = 1083.0
-offset_bottom = 597.0
-color = Color(0.18779328, 0.18779328, 0.18779328, 1)
+offset_top = -16.0
+offset_right = 1172.0
+offset_bottom = 648.0
+color = Color(0.23921569, 0.29411766, 0.40784314, 1)
 
 [node name="Label" type="Label" parent="." unique_id=870859222]
-offset_left = -2.0
-offset_top = 247.0
-offset_right = 1159.0
-offset_bottom = 345.0
-theme_override_font_sizes/font_size = 50
-text = "Wins"
+offset_left = 1.0
+offset_top = 28.0
+offset_right = 1162.0
+offset_bottom = 126.0
+theme_override_font_sizes/font_size = 90
+text = "Wins!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PlayButton" type="Button" parent="." unique_id=394401833]
-offset_left = 494.0
-offset_top = 417.0
-offset_right = 644.0
-offset_bottom = 511.0
+offset_left = 503.0
+offset_top = 473.0
+offset_right = 653.0
+offset_bottom = 567.0
 theme_override_font_sizes/font_size = 30
-text = "Play"
+text = "Play
+Again
+"
+
+[node name="Trophy" type="AnimatedSprite2D" parent="." unique_id=1511540980]
+position = Vector2(572, 296)
+sprite_frames = SubResource("SpriteFrames_1wk1d")
+frame_progress = 0.6460304
+
+[node name="WinAudio" type="AudioStreamPlayer" parent="." unique_id=954023137]
+process_mode = 3
+stream = ExtResource("3_705q1")
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

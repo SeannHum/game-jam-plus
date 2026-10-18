@@ -23,6 +23,7 @@ scale = Vector2(2.0017362, 1.9876543)
 texture = ExtResource("2_272bh")
 
 [node name="Player1" parent="." unique_id=2012800532 instance=ExtResource("1_ig7tw")]
+scale = Vector2(0.99999976, 1)
 player_id = 1
 frames = ExtResource("4_kek77")
 attack_sound = ExtResource("5_ycdy4")
@@ -31,10 +32,16 @@ attack_sound = ExtResource("5_ycdy4")
 position = Vector2(-7, 11)
 
 [node name="FloatingPlatform" parent="." unique_id=778303035 instance=ExtResource("4_4c57u")]
-position = Vector2(-1, 5)
+position = Vector2(0, 35)
+
+[node name="FloatingPlatform2" parent="." unique_id=935186677 instance=ExtResource("4_4c57u")]
+position = Vector2(-362, -111)
+
+[node name="FloatingPlatform3" parent="." unique_id=136230737 instance=ExtResource("4_4c57u")]
+position = Vector2(375, -86)
 
 [node name="Player2" parent="." unique_id=210690658 instance=ExtResource("1_ig7tw")]
-position = Vector2(933, 119)
+position = Vector2(935, 141)
 player_id = 2
 frames = ExtResource("5_4c57u")
 attack_sound = ExtResource("9_w48qg")
@@ -47,7 +54,7 @@ attack_sound = ExtResource("9_w48qg")
 max_x = 1152.0
 
 [node name="GameTimer" type="Timer" parent="." unique_id=599295829]
-wait_time = 60.0
+wait_time = 40.0
 one_shot = true
 autostart = true
 

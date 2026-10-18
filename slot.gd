@@ -49,23 +49,23 @@ func get_reward_text(result: Array) -> String:
 	
 	# Triple rewards
 	if sword_count == 3:
-		return "Triple swords!\n+2 Attack"
+		return "Triple swords! +2 Attack"
 		
 	if shield_count == 3:
-		return "Triple shields!\nInvincibility for 6s"
+		return "Triple shields! \nInvincibility for 6s"
 		
 	if heart_count == 3:
-		return "Triple hearts!\nHeal 4 HP"
+		return "Triple hearts! Heal 4 HP"
 		
 	# Pair rewards
 	if sword_count == 2:
-		return "Sword pair!\n+1 Attack"
+		return "Sword pair! +1 Attack"
 		
 	if shield_count == 2:
-		return "Shield pair!\nInvincibility for 3s"
+		return "Shield pair! \nInvincibility for 3s"
 		
 	if heart_count == 2:
-		return "Heart pair!\nHeal 2 HP"
+		return "Heart pair! Heal 2 HP"
 		
 	# All three symbols are different
 	return "No reward"

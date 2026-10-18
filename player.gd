@@ -10,7 +10,7 @@ var left
 var right
 var jump
 var attack
-var lives := 6
+var lives := 8
 var saved_direction = 1
 var invincible = false
 var damage = 1
@@ -34,6 +34,7 @@ func _ready() -> void:
 	$AttackSound.stream = attack_sound
 	
 	$Slot.player = self
+	$PlayerName.text = "P" + str(player_id)
 
 
 func _physics_process(delta: float) -> void:	
@@ -48,10 +49,10 @@ func _physics_process(delta: float) -> void:
 	# Handle left and right movement
 	var direction := Input.get_axis(left, right)
 	# Setting player hitbox direction
-	if saved_direction != direction and direction != 0:
-		saved_direction = direction
-		$"AttackArea/CollisionShape2D".position.x *= -1
-		$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
+	if saved_direction != sign(direction) and direction != 0:
+		saved_direction = sign(direction)
+		$"AttackArea/CollisionShape2D".position.x = abs($"AttackArea/CollisionShape2D".position.x) * -1
+		$AnimatedSprite2D.flip_h = (saved_direction == -1)
 	
 	if direction:
 		velocity.x = move_toward(velocity.x, SPEED * direction, ACCELERATION)
@@ -66,7 +67,7 @@ func _physics_process(delta: float) -> void:
 	
 	# When attack is pressed, if there is a player in the attack area, send a signal 
 	if Input.is_action_just_pressed(attack):
-		if !attack2_playing:
+		if !attack2_playing and !hurt_playing:
 			attack2_playing = true
 			$AnimatedSprite2D.play("attack2")
 			$AttackSound.play()
@@ -100,6 +101,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func play_hurt_animation():
 	$AnimatedSprite2D.play("hurt")
+	attack2_playing = false
 	hurt_playing = true
 
 

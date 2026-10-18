@@ -32,6 +32,8 @@ func lose_life(body, from_x, damage) -> void:
 			# If no more lives, end game, else respawn
 			if body.lives <= 0:
 				# End the game with the Win Screen
+				$WinMenu/WinAudio.play()
+				$WinMenu/Trophy.play("default")
 				get_tree().paused = true
 				$WinMenu.visible = true
 				if body.name == "Player1":
@@ -56,10 +58,10 @@ func _on_player_hit(player, from_x, damage):
 func _on_spin_result(player, symbol, count):
 	if symbol == "❤️":
 		if count == 2:
-			player.lives =  max(10, player.lives + 2)
+			player.lives =  min(10, player.lives + 2)
 			$HUD.on_lives_changed(player.name, player.lives)
 		if count == 3:
-			player.lives =  max(10, player.lives + 4)
+			player.lives =  min(10, player.lives + 4)
 			$HUD.on_lives_changed(player.name, player.lives)
 	if symbol == "🛡️":
 		if count == 2:
