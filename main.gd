@@ -12,7 +12,7 @@ func _ready() -> void:
 	$Player2/Slot.spin_result.connect($"."._on_spin_result)
 	
 	$Player1/Slot.position = Vector2(0,0)
-	$Player2/Slot.position = Vector2(900,0)
+	$Player2/Slot.position = Vector2(800,0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -56,10 +56,10 @@ func _on_player_hit(player, from_x, damage):
 func _on_spin_result(player, symbol, count):
 	if symbol == "❤️":
 		if count == 2:
-			player.lives += 2
+			player.lives =  max(10, player.lives + 2)
 			$HUD.on_lives_changed(player.name, player.lives)
 		if count == 3:
-			player.lives += 4
+			player.lives =  max(10, player.lives + 4)
 			$HUD.on_lives_changed(player.name, player.lives)
 	if symbol == "🛡️":
 		if count == 2:

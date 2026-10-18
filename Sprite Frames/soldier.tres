@@ -124,7 +124,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"attack2",
-"speed": 12.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,

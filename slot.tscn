@@ -30,10 +30,10 @@ theme_override_font_sizes/font_size = 40
 text = "?"
 
 [node name="Result" type="Label" parent="." unique_id=1347449407]
-offset_left = 26.0
-offset_top = 150.0
-offset_right = 354.0
-offset_bottom = 244.0
+offset_left = 18.0
+offset_top = 173.0
+offset_right = 346.0
+offset_bottom = 267.0
 theme_override_font_sizes/font_size = 40
 vertical_alignment = 1
 

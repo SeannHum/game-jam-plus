@@ -38,6 +38,8 @@ debug_color = Color(0.6156863, 0.5294118, 0.23529412, 0.73333335)
 [node name="Slot" parent="." unique_id=182238302 instance=ExtResource("3_i3pqv")]
 top_level = true
 
+[node name="AttackSound" type="AudioStreamPlayer" parent="." unique_id=982219459]
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

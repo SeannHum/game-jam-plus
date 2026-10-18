@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var player_id: int
 @export var frames: SpriteFrames
+@export var attack_sound: AudioStream
 
 signal player_hit(player, from_entity, damage)
 
@@ -30,6 +31,7 @@ func _ready() -> void:
 	attack = "p" + str(player_id) + "_attack"
 	
 	$AnimatedSprite2D.sprite_frames = frames
+	$AttackSound.stream = attack_sound
 	
 	$Slot.player = self
 
@@ -64,8 +66,10 @@ func _physics_process(delta: float) -> void:
 	
 	# When attack is pressed, if there is a player in the attack area, send a signal 
 	if Input.is_action_just_pressed(attack):
-		attack2_playing = true
-		$AnimatedSprite2D.play("attack2")
+		if !attack2_playing:
+			attack2_playing = true
+			$AnimatedSprite2D.play("attack2")
+			$AttackSound.play()
 
 
 func check_hit():

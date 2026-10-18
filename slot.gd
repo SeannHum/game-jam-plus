@@ -24,7 +24,7 @@ func spin() -> void:
 	
 	$ReelAnimationTimer.start()
 	$RollSound.play()
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(3.0, false).timeout
 	$ReelAnimationTimer.stop()
 	$RollSound.stop()
 	

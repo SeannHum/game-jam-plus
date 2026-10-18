@@ -27,12 +27,13 @@ func _on_interval_timer_timeout() -> void:
 
 func _on_warning_timer_timeout() -> void:
 	$WarningLabel.text = ""
+	$LightningBlast.play()
 	$StrikeArea.visible = true
 	check_hit()
 	$LightningDurationTimer.start()
 	
 	# Reset lightning interval and make the duration shorter
-	$IntervalTimer.wait_time *= 0.8
+	$IntervalTimer.wait_time = max(0.5, $IntervalTimer.wait_time * 0.8)
 	$IntervalTimer.start()
 
 
@@ -48,4 +49,4 @@ func check_hit():
 
 func _on_lightning_duration_timer_timeout() -> void:
 	$StrikeArea.visible = false
-	$LightningDurationTimer.wait_time *= 0.8
+	$LightningDurationTimer.wait_time = max(0.2, $LightningDurationTimer.wait_time * 0.8)

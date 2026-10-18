@@ -8,8 +8,10 @@
 [ext_resource type="SpriteFrames" uid="uid://bt4abdvagbh1h" path="res://Sprite Frames/soldier.tres" id="4_kek77"]
 [ext_resource type="SpriteFrames" uid="uid://cpld2rydb6wcy" path="res://Sprite Frames/orc.tres" id="5_4c57u"]
 [ext_resource type="PackedScene" uid="uid://d1mlgeogdlgtf" path="res://hud.tscn" id="5_lquwl"]
+[ext_resource type="AudioStream" uid="uid://pxcyey1votbc" path="res://music/Sword Whoop 2.mp3" id="5_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://cpx81m6i88qka" path="res://win_menu.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://3ucefucs1tnv" path="res://lightning_spawner.tscn" id="7_272bh"]
+[ext_resource type="AudioStream" uid="uid://772s73hpxfnn" path="res://music/Axe Hit 2.mp3" id="9_w48qg"]
 [ext_resource type="AudioStream" uid="uid://cvc723rhfojxs" path="res://music/rumble-jackpot-showdown-2.mp3" id="11_efxa6"]
 
 [node name="Main" type="Node" unique_id=1184358627]
@@ -23,6 +25,7 @@ texture = ExtResource("2_272bh")
 [node name="Player1" parent="." unique_id=2012800532 instance=ExtResource("1_ig7tw")]
 player_id = 1
 frames = ExtResource("4_kek77")
+attack_sound = ExtResource("5_ycdy4")
 
 [node name="MainPlatform" parent="." unique_id=192484755 instance=ExtResource("2_0xm2m")]
 position = Vector2(-7, 11)
@@ -34,13 +37,14 @@ position = Vector2(-1, 5)
 position = Vector2(933, 119)
 player_id = 2
 frames = ExtResource("5_4c57u")
+attack_sound = ExtResource("9_w48qg")
 
 [node name="HUD" parent="." unique_id=310700559 instance=ExtResource("5_lquwl")]
 
 [node name="WinMenu" parent="." unique_id=2002102645 instance=ExtResource("6_7mycd")]
 
 [node name="LightningSpawner" parent="." unique_id=1123771010 instance=ExtResource("7_272bh")]
-min_x = 1152.0
+max_x = 1152.0
 
 [node name="GameTimer" type="Timer" parent="." unique_id=599295829]
 wait_time = 5.0
@@ -49,7 +53,6 @@ autostart = true
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1972197135]
 stream = ExtResource("11_efxa6")
-volume_db = 5.0
 autoplay = true
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

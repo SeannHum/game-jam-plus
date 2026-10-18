@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cksth13lvlrac" path="res://lightning_spawner.gd" id="1_bj5xe"]
 [ext_resource type="Texture2D" uid="uid://daukjea17iwa7" path="res://art/lightning_line5a4.png" id="2_h3nk1"]
+[ext_resource type="AudioStream" uid="uid://dn3lrh8ar45hf" path="res://music/Lightning Blast 2.mp3" id="3_vwo8i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bj5xe"]
 size = Vector2(28, 600)
@@ -39,6 +40,9 @@ debug_color = Color(0.4392157, 1, 0.98039216, 0.41960785)
 [node name="LightningDurationTimer" type="Timer" parent="." unique_id=212971964]
 wait_time = 0.35
 one_shot = true
+
+[node name="LightningBlast" type="AudioStreamPlayer" parent="." unique_id=1565972937]
+stream = ExtResource("3_vwo8i")
 
 [connection signal="timeout" from="IntervalTimer" to="." method="_on_interval_timer_timeout"]
 [connection signal="timeout" from="WarningTimer" to="." method="_on_warning_timer_timeout"]
